@@ -41,7 +41,7 @@ public class GanzaActivity extends AppCompatActivity {
     }
 
     public void playSound() {
-        MediaPlayer player = MediaPlayer.create(this, R.raw.shakeregg2);
+        MediaPlayer player = MediaPlayer.create(this, R.raw.shek);
         player.start();
         player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
@@ -66,7 +66,6 @@ public class GanzaActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            return true;
         }
 
         return super.onOptionsItemSelected(item);
