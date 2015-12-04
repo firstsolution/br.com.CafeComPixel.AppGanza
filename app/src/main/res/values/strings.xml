@@ -2,4 +2,5 @@
     <string name="app_name">Ganzá</string>
     <string name="action_settings">Configurações</string>
     <string name="frase">Chacoalhe o aparelho para \nfazer o som do Ovinho Ganzá </string>
+    <string name="frase_baby">Toque no ovinho \n pra fazer o som!</string>
 </resources>
