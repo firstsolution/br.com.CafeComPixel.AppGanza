@@ -1,19 +1,23 @@
 package br.com.cafecompixel.appganza;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class GanzaActivity extends AppCompatActivity {
 
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
+    private FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,10 @@ public class GanzaActivity extends AppCompatActivity {
         return true;
     }
 
+    public void irModoBaby (View view){
+        Intent intencao =new Intent(this,BabyGanzaFragment.class);
+        startActivity(intencao);
+    }
     public void playSound() {
         MediaPlayer player = MediaPlayer.create(this, R.raw.shek);
         player.start();
@@ -60,20 +68,43 @@ public class GanzaActivity extends AppCompatActivity {
                 SensorManager.SENSOR_DELAY_UI);
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        int id = item.getItemId();
+//        int id = item.getItemId();
+//
+//        replaceFragment(new BabyGanzaFragment(), "MODO BABY");
+//
+//        if (id == R.id.action_settings) {
+//        }
+        switch (item.getItemId()) {
+            case R.id.action_modo_baby:
+                transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment, new BabyGanzaFragment(),null);
+                transaction.commit();
+                return true;
 
-        if (id == R.id.action_settings) {
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
         }
 
-        return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(mShakeDetector);
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, GanzaActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }
