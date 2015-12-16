@@ -1,10 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".GanzaActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.GanzaActivity">
     <item
-        android:id="@+id/action_modo_baby"
-        android:title="@string/modo_baby"
+        android:id="@+id/action_settings"
+        android:icon="@drawable/config"
         android:orderInCategory="0"
-        android:actionLayout="@layout/fragment_ganza_baby"
-        app:showAsAction="never" />
+        app:showAsAction="always"
+        android:title="config" />
 </menu>
+

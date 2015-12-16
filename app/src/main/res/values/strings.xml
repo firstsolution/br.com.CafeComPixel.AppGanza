@@ -4,4 +4,9 @@
     <string name="frase">Chacoalhe o aparelho para \nfazer o som do Ovinho Ganzá </string>
     <string name="frase_baby">Toque no ovinho \n pra fazer o som!</string>
     <string name="modo_baby">Modo Baby</string>
+    <string name="cor_ovo">Cor do Ovinho</string>
+    <string name="check_ovinho">CRECK! SURPRESA!</string>
+
+
+    <string name="icon_heart">&#xf060;</string>
 </resources>

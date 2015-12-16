@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="40dp"
+    android:background="@color/cinza"
+    android:id="@+id/linearLayout">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/prop06"
+            android:padding="10dp" />
+        <TextView
+            android:layout_width="159dp"
+            android:layout_height="60dp"
+            android:paddingTop="20dp"
+            android:textSize="28dp"
+            android:textColor="@color/black"
+            android:text="@string/modo_baby" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/action_modo_baby"
+            android:layout_weight="0.60"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/prop07"
+            android:padding="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:paddingTop="10dp"
+            android:textSize="28dp"
+            android:textColor="@color/black"
+            android:text="@string/cor_ovo" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:weightSum="1">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/egg_black"
+            android:layout_margin="5dp"
+            android:scaleX="1.8"
+            android:scaleY="1.8" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/egg_pink"
+            android:layout_margin="5dp"
+            android:scaleX="1.8"
+            android:scaleY="1.8"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/egg_orange"
+            android:layout_margin="5dp"
+            android:scaleX="1.8"
+            android:scaleY="1.8"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/egg_purple"
+            android:layout_margin="5dp"
+            android:scaleX="1.8"
+            android:scaleY="1.8"
+            android:checked="true"
+            android:clickable="true" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/egg_blue"
+            android:layout_margin="5dp"
+            android:scaleX="1.8"
+            android:scaleY="1.8"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/egg_green"
+            android:layout_margin="5dp"
+            android:scaleX="1.8"
+            android:scaleY="1.8"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/egg_yellow"
+            android:layout_margin="5dp"
+            android:scaleX="1.8"
+            android:scaleY="1.8"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+</RelativeLayout>

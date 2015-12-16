@@ -1,4 +1,4 @@
-package br.com.cafecompixel.appganza;
+package br.com.cafecompixel.appganza.util;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
