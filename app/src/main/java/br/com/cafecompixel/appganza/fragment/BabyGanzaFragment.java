@@ -3,13 +3,14 @@ package br.com.cafecompixel.appganza.fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import br.com.cafecompixel.appganza.R;
 import br.com.cafecompixel.appganza.activity.GanzaActivity;
@@ -23,7 +24,7 @@ public class BabyGanzaFragment  extends Fragment {
     public static final String EGG_BLACk = "egg_black";
     public static final String EGG_BLUE = "egg_blue";
     public static final String EGG_GREEN = "egg_green";
-    public static final String EGG_ORANGE = "egg_orange";
+    public static final String EGG_RED = "egg_red";
     public static final String EGG_PURPLE = "egg_purple";
     public static final String EGG_PINK = "egg_pink";
     public static final String EGG_YELLOW = "egg_yellow";
@@ -39,8 +40,21 @@ public class BabyGanzaFragment  extends Fragment {
         settings =  getActivity(). getSharedPreferences(GanzaActivity.PREFS_NAME, 0);
         layout = inflater.inflate(R.layout.fragment_ganza_baby, container, false);
 
+        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setTitle("Ganzá Baby");
+
         return layout;
     }
+//    Evento para saber quando tocou na tela
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//
+//        this.touchesLeft--;
+//
+//        Toast.makeText(this, "falta "+touchesLeft.toString()+" toques", Toast.LENGTH_SHORT).show();
+//        return super.onTouchEvent(event);
+//    }
 
     @Override
     public void onCreateOptionsMenu (Menu menu, MenuInflater inflater) {
@@ -67,9 +81,9 @@ public class BabyGanzaFragment  extends Fragment {
                 img7.setImageResource(R.drawable.egg_pink);
                 break;
 
-            case EGG_ORANGE:
+            case EGG_RED:
                 ImageView img3= (ImageView) layout.findViewById(R.id.eggImg);
-                img3.setImageResource(R.drawable.egg_orange);
+                img3.setImageResource(R.drawable.egg_red);
                 break;
             case EGG_PURPLE:
                 ImageView img4= (ImageView) layout.findViewById(R.id.eggImg);
@@ -94,7 +108,6 @@ public class BabyGanzaFragment  extends Fragment {
 
         }
 
-        Toast.makeText(getContext(), color, Toast.LENGTH_SHORT).show();
     }
 
 }

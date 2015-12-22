@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +29,7 @@ public class ConfigGanzaFragment extends Fragment {
 
     CheckBox eggBlack;
     CheckBox eggPurple;
-    CheckBox eggOrange;
+    CheckBox eggRed;
     CheckBox eggPink;
     CheckBox eggGreen;
     CheckBox eggBlue;
@@ -47,6 +49,10 @@ public class ConfigGanzaFragment extends Fragment {
         setupBabyModeSwitch();
 
         setupBabyModeColors();
+
+        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Configurações");
 
         return layout;
     }
@@ -73,7 +79,7 @@ public class ConfigGanzaFragment extends Fragment {
 
         eggBlack = (CheckBox) layout.findViewById(R.id.egg_black);
         eggPink = (CheckBox) layout.findViewById(R.id.egg_pink);
-        eggOrange = (CheckBox) layout.findViewById(R.id.egg_orange);
+        eggRed = (CheckBox) layout.findViewById(R.id.egg_red);
         eggPurple = (CheckBox) layout.findViewById(R.id.egg_purple);
         eggBlue = (CheckBox) layout.findViewById(R.id.egg_blue);
         eggGreen = (CheckBox) layout.findViewById(R.id.egg_green);
@@ -91,7 +97,7 @@ public class ConfigGanzaFragment extends Fragment {
 
                 eggBlack.setChecked(false);
                 eggPink.setChecked(false);
-                eggOrange.setChecked(false);
+                eggRed.setChecked(false);
                 eggPurple.setChecked(false);
                 eggBlue.setChecked(false);
                 eggGreen.setChecked(false);
@@ -108,7 +114,7 @@ public class ConfigGanzaFragment extends Fragment {
 
         eggBlack.setOnCheckedChangeListener(onChange);
         eggPink.setOnCheckedChangeListener(onChange);
-        eggOrange.setOnCheckedChangeListener(onChange);
+        eggRed.setOnCheckedChangeListener(onChange);
         eggPurple.setOnCheckedChangeListener(onChange);
         eggBlue.setOnCheckedChangeListener(onChange);
         eggGreen.setOnCheckedChangeListener(onChange);
@@ -130,8 +136,8 @@ public class ConfigGanzaFragment extends Fragment {
                 color = BabyGanzaFragment.EGG_PINK;
                 break;
 
-            case R.id.egg_orange:
-                color = BabyGanzaFragment.EGG_ORANGE;
+            case R.id.egg_red:
+                color = BabyGanzaFragment.EGG_RED;
                 break;
 
             case R.id.egg_purple:

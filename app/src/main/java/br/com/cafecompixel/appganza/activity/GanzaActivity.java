@@ -7,13 +7,15 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+
+import java.util.Random;
 
 import br.com.cafecompixel.appganza.R;
 import br.com.cafecompixel.appganza.fragment.BabyGanzaFragment;
@@ -29,6 +31,8 @@ public class GanzaActivity extends AppCompatActivity {
     private FragmentTransaction transaction;
     public static final String PREFS_NAME = "BabyConfig";
 
+
+    Integer touchesLeft = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,8 @@ public class GanzaActivity extends AppCompatActivity {
             irParaFragment(new GanzaFragment());
         }
 
+        resetTouchesLeft();
+
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
@@ -59,8 +65,6 @@ public class GanzaActivity extends AppCompatActivity {
             }
         });
 
-        ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -69,17 +73,6 @@ public class GanzaActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_ganza, menu);
         return true;
     }
-
-//    public void irModoBaby (View view) {
-
-//        Switch babyToggle = (Switch) findViewById(R.id.action_modo_baby);
-//
-//        if(babyToggle.isChecked()) {
-//            irParaFragment(new BabyGanzaFragment());
-//        } else {
-//            irParaFragment(new GanzaActivityFragment());
-//        }
-//    }
 
     public void irParaFragment(Fragment fragment) {
         transaction = getSupportFragmentManager().beginTransaction();
@@ -108,12 +101,15 @@ public class GanzaActivity extends AppCompatActivity {
 
     }
 //    Evento para saber quando tocou na tela
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//        // TODO Auto-generated method stub
-//        Toast.makeText(this, "clicou na tela", Toast.LENGTH_SHORT).show();
-//        return super.onTouchEvent(event);
-//    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        this.touchesLeft--;
+
+
+//        Toast.makeText(this, "falta " + touchesLeft.toString() + " toques", Toast.LENGTH_SHORT).show();
+        return super.onTouchEvent(event);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -124,9 +120,19 @@ public class GanzaActivity extends AppCompatActivity {
                 return true;
 
             case android.R.id.home:
-            NavUtils.navigateUpFromSameTask(this);
-            return true;
+                FragmentManager fm = getSupportFragmentManager();
+                Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment);
+                if(fragment instanceof ConfigGanzaFragment) {
+                    Intent intent = new Intent(this, GanzaActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Intent intent = new Intent(this, BabyGanzaFragment.class);
+                    startActivity(intent);
+                    finish();
+                }
 
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -149,5 +155,9 @@ public class GanzaActivity extends AppCompatActivity {
         finish();
     }
 
+
+    private void resetTouchesLeft() {
+        this.touchesLeft = (new Random()).nextInt(10);
+    }
 
 }

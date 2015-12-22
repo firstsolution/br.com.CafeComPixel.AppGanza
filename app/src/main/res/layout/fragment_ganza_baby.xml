@@ -9,25 +9,26 @@
 
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="230dp"
+                android:layout_height="280dp"
                 android:id="@+id/eggImg"
                 android:layout_weight="2"
                 android:layout_gravity="center"
                 android:orientation="horizontal"/>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
                 android:text="@string/frase_baby"
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textSize="24dp"
                 android:textColor="@color/colorPrimaryDark"
-                android:paddingTop="15dp"
+                android:paddingTop="22dp"
                 android:layout_gravity="center"
                 android:orientation="horizontal"
-                android:background="@drawable/prop05"/>
+                android:background="@drawable/prop05"
+                android:layout_marginBottom="10dp" />
 
 
 

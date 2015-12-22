@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/cinza">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/White"
     android:layout_marginTop="40dp"
-    android:background="@color/cinza"
     android:id="@+id/linearLayout">
 
 
@@ -64,59 +65,66 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="10dp"
         android:weightSum="1">
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/egg_black"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:scaleX="1.8"
-            android:scaleY="1.8" />
+            android:scaleY="1.8"
+            android:buttonTint="@color/black"/>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/egg_pink"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
             android:scaleX="1.8"
-            android:scaleY="1.8"/>
+            android:scaleY="1.8"
+            android:buttonTint="@color/pink"/>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/egg_orange"
-            android:layout_margin="5dp"
+            android:id="@+id/egg_red"
+            android:layout_margin="8dp"
             android:scaleX="1.8"
-            android:scaleY="1.8"/>
+            android:scaleY="1.8"
+            android:buttonTint="@color/red"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/egg_purple"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
             android:scaleX="1.8"
             android:scaleY="1.8"
+            android:buttonTint="@color/purple"
             android:checked="true"
             android:clickable="true" />
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/egg_blue"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:buttonTint="@color/blue"
             android:scaleX="1.8"
             android:scaleY="1.8"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/egg_green"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:buttonTint="@color/green"
             android:scaleX="1.8"
             android:scaleY="1.8"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/egg_yellow"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:buttonTint="@color/yellow"
             android:scaleX="1.8"
             android:scaleY="1.8"/>
     </LinearLayout>

@@ -9,17 +9,13 @@ import android.view.ViewGroup;
 import br.com.cafecompixel.appganza.R;
 
 /**
- * A placeholder fragment containing a simple view.
+ * Created by Marcos on 17/12/15.
  */
-public class GanzaFragment extends Fragment {
-
-
+public class EggGanzaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_ganza, container, false);
+        return inflater.inflate(R.layout.fragment_ganza_egg, container, false);
 
     }
-
-
 }

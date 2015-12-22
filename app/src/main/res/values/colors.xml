@@ -4,8 +4,15 @@
     <color name="colorPrimaryDark">#2A736C</color>
     <color name="colorAccentDark">#93278F</color>
     <color name="colorAccent">#93278F</color>
+
     <color name="White">#FFFFFF</color>
     <color name="cinza">#efeded</color>
     <color name="cinzaEscuro">#41efeded</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#1f6013</color>
+    <color name="red">#c40d13</color>
+    <color name="blue">#161f86</color>
+    <color name="pink">#c92191</color>
+    <color name="purple">#7108c7</color>
     <color name="black">#000000</color>
 </resources>
