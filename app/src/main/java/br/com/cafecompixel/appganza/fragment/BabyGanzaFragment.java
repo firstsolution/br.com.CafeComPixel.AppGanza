@@ -3,8 +3,10 @@ package br.com.cafecompixel.appganza.fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,8 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import java.util.Random;
+
 import br.com.cafecompixel.appganza.R;
 import br.com.cafecompixel.appganza.activity.GanzaActivity;
+import br.com.cafecompixel.appganza.util.SoundManager;
 
 
 /**
@@ -21,13 +26,20 @@ import br.com.cafecompixel.appganza.activity.GanzaActivity;
  */
 public class BabyGanzaFragment  extends Fragment {
 
-    public static final String EGG_BLACk = "egg_black";
-    public static final String EGG_BLUE = "egg_blue";
-    public static final String EGG_GREEN = "egg_green";
-    public static final String EGG_RED = "egg_red";
+
+    public static final String EGG_BLACk  = "egg_black";
+    public static final String EGG_BLUE   = "egg_blue";
+    public static final String EGG_GREEN  = "egg_green";
+    public static final String EGG_RED    = "egg_red";
     public static final String EGG_PURPLE = "egg_purple";
-    public static final String EGG_PINK = "egg_pink";
+    public static final String EGG_PINK   = "egg_pink";
     public static final String EGG_YELLOW = "egg_yellow";
+    private static final short RANDOM_NUMBER_LIMIT = 20;
+
+    private ImageView eggImageView;
+    private short     toques = 0;
+    private int       randomNumber;
+    private boolean   isEggFragment;
 
     SharedPreferences settings;
     View layout;
@@ -44,17 +56,11 @@ public class BabyGanzaFragment  extends Fragment {
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setTitle("Ganzá Baby");
 
+        randomNumber  = getRandomNumber();
+        isEggFragment = getRandomBoolean();
+
         return layout;
     }
-//    Evento para saber quando tocou na tela
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//
-//        this.touchesLeft--;
-//
-//        Toast.makeText(this, "falta "+touchesLeft.toString()+" toques", Toast.LENGTH_SHORT).show();
-//        return super.onTouchEvent(event);
-//    }
 
     @Override
     public void onCreateOptionsMenu (Menu menu, MenuInflater inflater) {
@@ -69,45 +75,84 @@ public class BabyGanzaFragment  extends Fragment {
 
         String color = settings.getString(ConfigGanzaFragment.EGG_COLOR, EGG_PURPLE);
 
+        // ImageView que ira conter a imagem do ovo
+        eggImageView = (ImageView) layout.findViewById(R.id.eggImg);
+
         switch(color) {
 
             case EGG_BLACk:
-                ImageView img1= (ImageView) layout.findViewById(R.id.eggImg);
-                img1.setImageResource(R.drawable.egg_black);
+                eggImageView.setImageResource(R.drawable.egg_black);
                 break;
 
             case EGG_PINK:
-                ImageView img7= (ImageView) layout.findViewById(R.id.eggImg);
-                img7.setImageResource(R.drawable.egg_pink);
+                eggImageView.setImageResource(R.drawable.egg_pink);
                 break;
 
             case EGG_RED:
-                ImageView img3= (ImageView) layout.findViewById(R.id.eggImg);
-                img3.setImageResource(R.drawable.egg_red);
+                eggImageView.setImageResource(R.drawable.egg_red);
                 break;
+
             case EGG_PURPLE:
-                ImageView img4= (ImageView) layout.findViewById(R.id.eggImg);
-                img4.setImageResource(R.drawable.egg_purple);
+                eggImageView.setImageResource(R.drawable.egg_purple);
                 break;
 
             case EGG_BLUE:
-                ImageView img2= (ImageView) layout.findViewById(R.id.eggImg);
-                img2.setImageResource(R.drawable.egg_blue);
+                eggImageView.setImageResource(R.drawable.egg_blue);
                 break;
 
             case EGG_GREEN:
-                ImageView img5= (ImageView) layout.findViewById(R.id.eggImg);
-                img5.setImageResource(R.drawable.egg_gree);
+                eggImageView.setImageResource(R.drawable.egg_gree);
                 break;
 
             case EGG_YELLOW:
-                ImageView img6= (ImageView) layout.findViewById(R.id.eggImg);
-                img6.setImageResource(R.drawable.egg_yellow);
-                break;
-
+                eggImageView.setImageResource(R.drawable.egg_yellow);
 
         }
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Evento que sera disparado quando o usuario clicar na imagem do ovo
+        eggImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SoundManager.playSound(getContext());
+                toques++;
+                if(toques == randomNumber) {
+                    irParaFragment(isEggFragment);
+                }
+            }
+        });
+    }
+
+    private int getRandomNumber() {
+
+        Random random = new Random();
+
+        int randomNumber = random.nextInt(RANDOM_NUMBER_LIMIT) + 1;
+
+        return randomNumber;
+    }
+
+    private boolean getRandomBoolean() {
+
+        Random random = new Random();
+
+        boolean randomBoolean = random.nextBoolean();
+
+        return randomBoolean;
+    }
+
+    private void irParaFragment(boolean isEggFragment) {
+        FragmentTransaction transaction;
+        transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        if(isEggFragment)
+            transaction.replace(R.id.fragment, new EggGanzaFragment(),null);
+        else
+            transaction.replace(R.id.fragment, new ChickGanzaFragment(), null);
+        transaction.commit();
     }
 
 }

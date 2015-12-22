@@ -25,12 +25,8 @@ import br.com.cafecompixel.appganza.util.ShakeDetector;
 
 public class GanzaActivity extends AppCompatActivity {
 
-    private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
-    private ShakeDetector mShakeDetector;
     private FragmentTransaction transaction;
     public static final String PREFS_NAME = "BabyConfig";
-
 
     Integer touchesLeft = 0;
 
@@ -54,18 +50,6 @@ public class GanzaActivity extends AppCompatActivity {
         }
 
         resetTouchesLeft();
-
-        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
-
-            @Override
-            public void onShake() {
-                playSound();
-            }
-        });
-
-
     }
 
     @Override
@@ -80,27 +64,7 @@ public class GanzaActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    public void playSound() {
-        MediaPlayer player = MediaPlayer.create(this, R.raw.shek);
-        player.start();
-        player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                mp.release();
-
-            }
-        });
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mSensorManager.registerListener(mShakeDetector, mAccelerometer,
-                SensorManager.SENSOR_DELAY_UI);
-
-    }
-//    Evento para saber quando tocou na tela
+    //Evento para saber quando tocou na tela
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
@@ -141,12 +105,6 @@ public class GanzaActivity extends AppCompatActivity {
 
     }
 
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mSensorManager.unregisterListener(mShakeDetector);
-    }
 
     @Override
     public void onBackPressed() {
