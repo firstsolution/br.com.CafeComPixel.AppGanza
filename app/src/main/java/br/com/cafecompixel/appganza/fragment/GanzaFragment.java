@@ -1,12 +1,9 @@
 package br.com.cafecompixel.appganza.fragment;
 
-import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
