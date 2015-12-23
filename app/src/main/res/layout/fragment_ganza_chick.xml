@@ -33,7 +33,7 @@
                 android:textAlignment="center"
                 android:textSize="24dp"
                 android:textColor="@color/colorPrimaryDark"
-                android:paddingTop="15dp"
+                android:paddingTop="30dp"
                 android:layout_gravity="center"
                 android:orientation="horizontal"
                 android:background="@drawable/prop05"/>
