@@ -11,7 +11,8 @@
     android:orientation="vertical"
     android:background="@color/White"
     android:layout_marginTop="40dp"
-    android:id="@+id/linearLayout">
+    android:id="@+id/linearLayout"
+    >
 
 
 
@@ -93,7 +94,7 @@
             android:layout_margin="15dp"
             android:scaleX="1.8"
             android:scaleY="1.8"
-            android:button="@drawable/check_box_red"/>
+            android:button="@drawable/check_box_red" />
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,7 +132,5 @@
     </LinearLayout>
 
 </LinearLayout>
-
-
 
 </RelativeLayout>
