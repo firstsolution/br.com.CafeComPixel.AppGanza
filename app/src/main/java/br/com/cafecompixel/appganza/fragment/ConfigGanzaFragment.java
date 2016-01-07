@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import br.com.cafecompixel.appganza.R;
 import br.com.cafecompixel.appganza.activity.GanzaActivity;
@@ -26,17 +30,6 @@ public class ConfigGanzaFragment extends Fragment {
 
     SharedPreferences settings;
     View layout;
-
-    CheckBox eggBlack;
-    CheckBox eggPurple;
-    CheckBox eggRed;
-    CheckBox eggPink;
-    CheckBox eggGreen;
-    CheckBox eggBlue;
-    CheckBox eggYellow;
-
-
-    int lastCheckboxId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,55 +70,46 @@ public class ConfigGanzaFragment extends Fragment {
 
     private void setupBabyModeColors() {
 
-        eggBlack = (CheckBox) layout.findViewById(R.id.egg_black);
-        eggPink = (CheckBox) layout.findViewById(R.id.egg_pink);
-        eggRed = (CheckBox) layout.findViewById(R.id.egg_red);
-        eggPurple = (CheckBox) layout.findViewById(R.id.egg_purple);
-        eggBlue = (CheckBox) layout.findViewById(R.id.egg_blue);
-        eggGreen = (CheckBox) layout.findViewById(R.id.egg_green);
-        eggYellow = (CheckBox) layout.findViewById(R.id.egg_yellow);
+        RadioGroup radioGroup = (RadioGroup) layout.findViewById(R.id.radio_group);
 
-
-        CompoundButton.OnCheckedChangeListener onChange = new CompoundButton.OnCheckedChangeListener() {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton view, boolean isChecked) {
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
 
-                CheckBox checkbox = (CheckBox) view;
+                RadioButton radioButton = (RadioButton) layout.findViewById(checkedId);
 
-                if(!checkbox.isChecked()) return;
-                if(lastCheckboxId == checkbox.getId()) return;
+                cleanCheckedIcon(checkedId);
 
-                eggBlack.setChecked(false);
-                eggPink.setChecked(false);
-                eggRed.setChecked(false);
-                eggPurple.setChecked(false);
-                eggBlue.setChecked(false);
-                eggGreen.setChecked(false);
-                eggYellow.setChecked(false);
-                lastCheckboxId = checkbox.getId();
-                checkbox.setChecked(true);
-                setEggColor(checkbox);
+                radioButton.setBackgroundResource(R.drawable.check);
 
-
-
+                setEggColor(checkedId);
             }
-        };
+        });
 
-
-        eggBlack.setOnCheckedChangeListener(onChange);
-        eggPink.setOnCheckedChangeListener(onChange);
-        eggRed.setOnCheckedChangeListener(onChange);
-        eggPurple.setOnCheckedChangeListener(onChange);
-        eggBlue.setOnCheckedChangeListener(onChange);
-        eggGreen.setOnCheckedChangeListener(onChange);
-        eggYellow.setOnCheckedChangeListener(onChange);
     }
 
-    public void setEggColor(View item){
+    private void cleanCheckedIcon(int checkedId) {
+
+        int[] raddioButtonIds = {R.id.egg_black, R.id.egg_pink, R.id.egg_red, R.id.egg_purple,
+                R.id.egg_blue, R.id.egg_green, R.id.egg_yellow};
+
+        RadioButton radioButton;
+
+        for(int id : raddioButtonIds) {
+
+            if(id == checkedId)
+                continue;
+
+            radioButton = (RadioButton) layout.findViewById(id);
+            radioButton.setBackgroundResource(0);
+        }
+    }
+
+    public void setEggColor(int itemId){
 
         String color;
 
-        switch (item.getId())
+        switch (itemId)
         {
 
             case R.id.egg_black:

@@ -69,66 +69,71 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:weightSum="1">
-        <CheckBox
+        <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/egg_black"
-            android:layout_margin="15dp"
-            android:scaleX="1.8"
-            android:scaleY="1.8"
-            android:button="@drawable/check_box_black"/>
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/radio_group">
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/egg_pink"
-            android:layout_margin="15dp"
-            android:scaleX="1.8"
-            android:scaleY="1.8"
-            android:button="@drawable/check_box_pink" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/egg_black"
+                android:layout_margin="15dp"
+                android:scaleX="1.8"
+                android:scaleY="1.8"
+                android:button="@drawable/check_box_black"/>
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/egg_red"
-            android:layout_margin="15dp"
-            android:scaleX="1.8"
-            android:scaleY="1.8"
-            android:button="@drawable/check_box_red" />
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/egg_purple"
-            android:layout_margin="15dp"
-            android:scaleX="1.8"
-            android:scaleY="1.8"
-            android:button="@drawable/check_box_purple"
-            android:checked="true"
-            android:clickable="true" />
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/egg_blue"
-            android:layout_margin="15dp"
-            android:button="@drawable/check_box_blue"
-            android:scaleX="1.8"
-            android:scaleY="1.8"/>
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/egg_green"
-            android:layout_margin="15dp"
-            android:button="@drawable/check_box_green"
-            android:scaleX="1.8"
-            android:scaleY="1.8" />
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/egg_yellow"
-            android:layout_margin="15dp"
-            android:button="@drawable/check_box_yellow"
-            android:scaleX="1.8"
-            android:scaleY="1.8"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/egg_pink"
+                android:layout_margin="15dp"
+                android:scaleX="1.8"
+                android:scaleY="1.8"
+                android:button="@drawable/check_box_pink" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/egg_red"
+                android:layout_margin="15dp"
+                android:scaleX="1.8"
+                android:scaleY="1.8"
+                android:button="@drawable/check_box_red" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/egg_purple"
+                android:layout_margin="15dp"
+                android:scaleX="1.8"
+                android:scaleY="1.8"
+                android:button="@drawable/check_box_purple" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/egg_blue"
+                android:layout_margin="15dp"
+                android:button="@drawable/check_box_blue"
+                android:scaleX="1.8"
+                android:scaleY="1.8"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/egg_green"
+                android:layout_margin="15dp"
+                android:button="@drawable/check_box_green"
+                android:scaleX="1.8"
+                android:scaleY="1.8" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/egg_yellow"
+                android:layout_margin="15dp"
+                android:button="@drawable/check_box_yellow"
+                android:scaleX="1.8"
+                android:scaleY="1.8"/>
+        </RadioGroup>
     </LinearLayout>
 
 </LinearLayout>
