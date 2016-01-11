@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/cinza"
-    android:foregroundTint="#a84242">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,7 +6,7 @@
     android:background="@color/White"
     android:layout_marginTop="40dp"
     android:id="@+id/linearLayout"
-    >
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
 
@@ -28,25 +22,24 @@
             android:src="@drawable/prop06"
             android:padding="10dp" />
         <TextView
-            android:layout_width="159dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:paddingTop="20dp"
             android:textSize="28dp"
             android:textColor="@color/black"
-            android:text="@string/modo_baby" />
+            android:text="@string/modo_baby"
+            android:layout_marginRight="4dp"/>
 
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/action_modo_baby"
-            android:layout_weight="0.60"
-            />
-
-
+            android:layout_gravity="center"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="wrap_content">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,8 +47,8 @@
             android:padding="10dp" />
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:paddingTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:textSize="28dp"
             android:textColor="@color/black"
             android:text="@string/cor_ovo" />
@@ -65,71 +58,78 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:weightSum="1">
         <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/radio_group">
 
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/egg_black"
-                android:layout_margin="15dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
                 android:scaleX="1.8"
                 android:scaleY="1.8"
                 android:button="@drawable/check_box_black"/>
 
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/egg_pink"
-                android:layout_margin="15dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
                 android:scaleX="1.8"
                 android:scaleY="1.8"
                 android:button="@drawable/check_box_pink" />
 
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/egg_red"
-                android:layout_margin="15dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
                 android:scaleX="1.8"
                 android:scaleY="1.8"
                 android:button="@drawable/check_box_red" />
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/egg_purple"
-                android:layout_margin="15dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
                 android:scaleX="1.8"
                 android:scaleY="1.8"
                 android:button="@drawable/check_box_purple" />
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/egg_blue"
-                android:layout_margin="15dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:button="@drawable/check_box_blue"
                 android:scaleX="1.8"
                 android:scaleY="1.8"/>
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/egg_green"
-                android:layout_margin="15dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:button="@drawable/check_box_green"
                 android:scaleX="1.8"
                 android:scaleY="1.8" />
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/egg_yellow"
-                android:layout_margin="15dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:button="@drawable/check_box_yellow"
                 android:scaleX="1.8"
                 android:scaleY="1.8"/>
@@ -138,4 +138,3 @@
 
 </LinearLayout>
 
-</RelativeLayout>
