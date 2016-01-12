@@ -14,7 +14,7 @@ public class ShakeDetector implements SensorEventListener {
 
     private static final int MIN_MOVEMENTS = 1;
 
-    private static final int MAX_SHAKE_DURATION = 1000;
+    private static final int MAX_SHAKE_DURATION = 800;
 
     private float[] mGravity = { 0.0f, 0.0f, 0.0f };
     private float[] mLinearAcceleration = { 0.0f, 0.0f, 0.0f };
@@ -73,7 +73,7 @@ public class ShakeDetector implements SensorEventListener {
 
     private void setCurrentAcceleration(SensorEvent event) {
 
-        final float alpha = 0.7f;
+        final float alpha = 0.8f;
 
         mGravity[X] = alpha * mGravity[X] + (1 - alpha) * event.values[X];
         mGravity[Y] = alpha * mGravity[Y] + (1 - alpha) * event.values[Y];
