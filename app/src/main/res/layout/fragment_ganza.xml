@@ -10,7 +10,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:src="@drawable/egg_purple"
+            android:id="@+id/eggImg"
             android:layout_weight="2"
             android:layout_gravity="center" />
 
