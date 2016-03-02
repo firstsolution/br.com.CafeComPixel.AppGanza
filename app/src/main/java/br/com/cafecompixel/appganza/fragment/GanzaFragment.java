@@ -63,7 +63,7 @@ public class GanzaFragment extends Fragment {
         super.onResume();
 
         mSensorManager.registerListener(mShakeDetector, mAccelerometer,
-                SensorManager.SENSOR_DELAY_UI);
+                SensorManager.SENSOR_DELAY_FASTEST);
     }
     @Override
     public void onStart() {

@@ -10,15 +10,20 @@ import br.com.cafecompixel.appganza.R;
  */
 public class SoundManager {
 
+    static MediaPlayer player;
+
     public static void playSound(Context context) {
 
-        MediaPlayer player = MediaPlayer.create(context, R.raw.shek);
+        if(player == null) {
+            player = MediaPlayer.create(context, R.raw.shek);
+        }
+
         player.start();
         player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
             @Override
             public void onCompletion(MediaPlayer mp) {
-                mp.release();
+//                mp.release();
             }
         });
     }
